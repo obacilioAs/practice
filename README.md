@@ -31,3 +31,6 @@ Ticket T0003: (Astrid) dependent on T0002
 Manages logic on before insert and gather the names of the testObjects with the same Accounts
 Add this logic to TestObjectUtility class (create if it does not exist)
 Commit changes in to feature branch and submit Pull Request adding Oscar Bacilio as reviewer.
+
+Ticket T0004: (Astrid) dependent on T0003
+Create Test Classes for Utility classes
