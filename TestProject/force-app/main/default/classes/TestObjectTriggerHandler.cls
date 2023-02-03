@@ -1,3 +1,11 @@
+/********************************************************************************************************************************************
+* @description       : Trigger Handler class for TestObjectTrigger, manages logic on before and after insert, update and delete
+* @author            : Alan Gutierrez
+* @group             : Apex Systems SFDC
+* @last modified on  : 02-02-2023
+* @last modified by  : Alan Gutierrez
+* @since             : Alan Gutierrez - 02-02-2023 - Ticket T0002: Trigger Handler creation
+*********************************************************************************************************************************************/
 public class TestObjectTriggerHandler {
     public static void doBeforeInsert(List<TestObject__c> newList) {
         
