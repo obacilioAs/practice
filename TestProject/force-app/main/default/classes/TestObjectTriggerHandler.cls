@@ -8,7 +8,7 @@
 *********************************************************************************************************************************************/
 public class TestObjectTriggerHandler {
     public static void doBeforeInsert(List<TestObject__c> newList) {
-        
+        TestObjectUtility.fillTestObjectsNamesWithSameAccountField(newList);
     }
     
     public static void doAfterInsert(List<TestObject__c> newList) {
