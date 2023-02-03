@@ -19,14 +19,18 @@ public class TestObjectUtility {
             FROM TestObject__c 
             WHERE Account__c IN: accIds
         ];
-        for(TestObject__c testObject : [SELECT Id, Name, Account__c FROM TestObject__c WHERE Account__c IN: accIds]){
+        for(TestObject__c testObject : [SELECT Id, Name, Account__c FROM TestObject__c WHERE Account__c IN: accIds ORDER BY Name ASC]){
             if(!testObjectsByAccountMap.containsKey(testObject.Account__c)){
                 testObjectsByAccountMap.put(testObject.Account__c, new List<TestObject__c>());
             } 
             testObjectsByAccountMap.get(testObject.Account__c).add(testObject);   
         }
         for(Id accId : testObjectsByAccountMap.keySet()){
-            testObjectNamesAtTheMomentPerAccount.put(accId, String.join(testObjectsByAccountMap.get(accId), '; '));
+            List<String> testObjectNamesCurrentAccount=new List<String>();
+            for(TestObject__c testObject:testObjectsByAccountMap.get(accId)){
+                testObjectNamesCurrentAccount.add(testObject.Name);
+            }
+            testObjectNamesAtTheMomentPerAccount.put(accId, String.join(testObjectNamesCurrentAccount, '; '));
         }
         //Main loop 
         for(TestObject__c testObject : newRecords){
